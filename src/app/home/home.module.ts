@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, UpperCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
@@ -16,6 +16,6 @@ import { NombreAbreviadoPipe } from '../nombre-abreviado.pipe';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, PersonalCardComponent, NombreAbreviadoPipe, UpperCasePipe]
+  declarations: [HomePage, PersonalCardComponent, NombreAbreviadoPipe]
 })
 export class HomePageModule {}
