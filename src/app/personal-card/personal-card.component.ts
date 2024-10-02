@@ -6,9 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./personal-card.component.scss'],
 })
 export class PersonalCardComponent  implements OnInit {
-  @Input('name') name:string = "";
-  @Input('surname') surname:string = "";
-  @Input('age') age:string = "";
+  @Input() name:string = "";
+  @Input() surname:string = "";
+  @Input() age:number = 0;
 
   constructor() { }
 
