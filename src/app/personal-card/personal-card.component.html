@@ -1,0 +1,23 @@
+<ion-card>
+  <ion-card-header>
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <ion-card-title>{{ name |  nombreAbreviado }} {{ surname | slice:0:1}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-subtitle>nombre</ion-card-subtitle>
+  <ion-card-content>
+    {{ name | nombreAbreviado }}
+  </ion-card-content><br>
+
+  <ion-card-subtitle>apellidos</ion-card-subtitle>
+  <ion-card-content>
+    {{ surname}}
+  </ion-card-content><br>
+
+  <ion-card-subtitle>edad</ion-card-subtitle>
+  <ion-card-content>
+    {{ age }}
+  </ion-card-content><br>
+</ion-card>

@@ -25,3 +25,15 @@
 #container a {
   text-decoration: none;
 }
+
+.card-container{
+  display: flex;    
+   flex-direction: column;          
+  justify-content: center;    
+  align-items: center;
+}
+
+.item{
+  margin-left: 10px; 
+}
+
