@@ -11,6 +11,23 @@
           <ion-col >
             <ion-text color="dark">{{name}} {{surname | slice:0:1 | uppercase}}.</ion-text>
           </ion-col>
+          <ion-col size="2">
+           <ion-button class="fav-button" fill="clear" aria-label="Favorite"
+	          (click)="onFavClick($event)" id="favButton">
+            <ion-icon *ngIf="fav" slot="icon-only"  color="danger" name="heart"
+		        aria-hidden="true"></ion-icon>
+           <ion-icon *ngIf="!fav" slot="icon-only"  color="medium" name="heart-outline"
+           aria-hidden="true"></ion-icon>
+           </ion-button>
+           <ion-alert
+             trigger="favButton"
+             header="{{ name }}"
+             subHeader="{{ surname }}"
+             message="El estado de favorito a sido cambiado"
+            [buttons]="alertButtons"
+            ></ion-alert>
+         </ion-col>
+
         </ion-row>
       </ion-grid>
     </ion-card-title>
@@ -26,4 +43,5 @@
       <ion-input label="Edad" type="text" placeholder="Edad" labelPlacement="floating" [value]="age+' años'" readonly></ion-input>
     </ion-item>
   </ion-card-content>
+  <ion-button (click)="onDeleteClick($event)">Delete</ion-button>
 </ion-card>

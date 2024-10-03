@@ -1,10 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-export interface Person{
+export interface Person {
   name:string,
   surname:string,
   age:number
+}
+
+export interface cardPerson extends Person{
+  isFav:boolean
 }
 @Component({
   selector: 'app-home',
@@ -47,9 +51,13 @@ export class HomePage {
       name: this.formulario?.value.name,
       surname: this.formulario?.value.surname,
       age: this.formulario?.value.age,
-
     });
 
   }
+
+  onDeleteClicked(idx: number){
+    let person = this.people[idx]
+  }
+
 
 }
