@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { PeopleService } from '../share/service/people.service';
+
 
 export interface Person {
   name:string,
@@ -19,45 +21,32 @@ export class HomePage {
 
   @ViewChild('formulario') formulario: NgForm | undefined;
 
-  people:Person[] = [];
-  constructor() {
-    /*this.people.push({
-      name:"Juan A.",
-      surname:"García Gómez",
-      age:47
-    });
-    this.people.push({
-      name:"Alejandro.",
-      surname:"García Gómez",
-      age:46
-    });
-
-    this.people.push({
-      name:"Juan",
-      surname:"García Valencia",
-      age:5
-    });
-
-    this.people.push({
-      name:"María del Mar",
-      surname:"Valencia Valencia",
-      age:47
-    });*/
+  constructor(public peopleSvc:PeopleService) {
   }
-
+  // añade una persona
   addPerson(){
 
-    this.people.push({
+    this.peopleSvc.add({
       name: this.formulario?.value.name,
       surname: this.formulario?.value.surname,
       age: this.formulario?.value.age,
-    });
+    })
 
   }
-
-  onDeleteClicked(idx: number){
-    let person = this.people[idx]
+  // elimina una persona
+  onDeleteClicked(id: string){
+    let person = this.peopleSvc.get(id)
+    if(person){
+      this.peopleSvc.remove(person);
+    }else{
+      console.log('Persona no encontrada');
+    }
   }
+
+  onFavClicked(idx:number){
+    //this.people[idx].isFav = !this.people[idx].isFav
+  }
+
 
 
 }

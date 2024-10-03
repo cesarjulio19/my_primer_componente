@@ -8,33 +8,32 @@ import { cardPerson } from '../../../home/home.page';
 })
 export class PersonalCardComponent  implements OnInit {
   alertButtons = ['Action'];
+  private _isFav:boolean = false;
   @Input() name:string = "";
   @Input() surname:string = "";
-  @Input() age:number = 0;
-  @Input() fav:boolean = false;
+  @Input() age:string = "";
+  @Input() set isFav(value:boolean){
+    this._isFav = value;
+  }
 
-  @Output() onFavClicked:EventEmitter<cardPerson> = new EventEmitter<cardPerson>();
-  @Output() onDeleteClicked:EventEmitter<void> = new EventEmitter<void>();
+  get isFav():boolean{
+    return this._isFav;
+  }
+
+  @Output() favClicked:EventEmitter<void> = new EventEmitter<void>();
+  @Output() deleteClicked:EventEmitter<void> = new EventEmitter<void>();
 
   constructor() { }
 
   
   onFavClick(event: any){
 
-    this.onFavClicked.emit({
-      isFav:!(this.fav),
-      name: this.name,
-      surname: this.surname,
-      age: this.age,
-    });
-    this.fav = !this.fav
-    event.stopPropagation();
+    this.favClicked.emit();
 
   }
 
   onDeleteClick(event: any){
-    this.onDeleteClicked.emit();
-    event.stopPropagation();
+    this.deleteClicked.emit();
   }
 
   ngOnInit() {}

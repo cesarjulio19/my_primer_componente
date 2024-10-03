@@ -36,12 +36,14 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let person of people; let idx = index">
+      <ion-col *ngFor="let person of peopleSvc.people$ | async; let idx = index">
         <app-personal-card 
+        [id] = "person.id"
         [name]="person.name" 
         [surname]="person.surname" 
         [age]="person.age"
-        (onDeleteClicked) = onDeleteClicked(idx)
+        (deleteClicked) = "person.id ? onDeleteClicked(person.id) : null" 
+        (favClicked) = onFavClicked(idx)
         >
         </app-personal-card>      
       </ion-col>

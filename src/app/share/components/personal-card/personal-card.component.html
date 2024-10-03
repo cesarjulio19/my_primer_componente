@@ -14,9 +14,9 @@
           <ion-col size="2">
            <ion-button class="fav-button" fill="clear" aria-label="Favorite"
 	          (click)="onFavClick($event)" id="favButton">
-            <ion-icon *ngIf="fav" slot="icon-only"  color="danger" name="heart"
+            <ion-icon *ngIf="isFav" slot="icon-only"  color="danger" name="heart"
 		        aria-hidden="true"></ion-icon>
-           <ion-icon *ngIf="!fav" slot="icon-only"  color="medium" name="heart-outline"
+           <ion-icon *ngIf="!isFav" slot="icon-only"  color="medium" name="heart-outline"
            aria-hidden="true"></ion-icon>
            </ion-button>
            <ion-alert
